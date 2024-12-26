@@ -1,0 +1,1 @@
+go build -buildmode=c-shared -o src/library.so src/library.go
