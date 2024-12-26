@@ -74,7 +74,7 @@ typedef struct { void *data; GoInt len; GoInt cap; } GoSlice;
 extern "C" {
 #endif
 
-extern void helloWorld();
+extern void print_a_number(GoInt num);
 
 #ifdef __cplusplus
 }
