@@ -75,6 +75,7 @@ extern "C" {
 #endif
 
 extern void print_a_number(GoInt num);
+extern GoInt return_a_number(GoInt num);
 
 #ifdef __cplusplus
 }
