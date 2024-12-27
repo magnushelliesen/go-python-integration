@@ -1,6 +1,6 @@
 import ctypes
 
-library = ctypes.cdll.LoadLibrary('src/library.so')
+library = ctypes.cdll.LoadLibrary('fibonacci/go/library.so')
 fibonacci_iterative = library.fibonacci_iterative
 
 fibonacci_iterative.argtypes = [ctypes.c_int]
