@@ -74,8 +74,7 @@ typedef struct { void *data; GoInt len; GoInt cap; } GoSlice;
 extern "C" {
 #endif
 
-extern void print_a_number(GoInt num);
-extern GoInt return_a_number(GoInt num);
+extern char* fibonacci_iterative(GoInt num);
 
 #ifdef __cplusplus
 }
