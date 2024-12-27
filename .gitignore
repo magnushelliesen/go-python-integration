@@ -25,3 +25,5 @@ go.work.sum
 .env
 
 __pycache__/
+/build/
+/dist/
