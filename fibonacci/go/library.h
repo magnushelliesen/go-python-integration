@@ -75,6 +75,7 @@ extern "C" {
 #endif
 
 extern char* fibonacci_iterative(GoInt num);
+extern GoInt fibonacci_recursive(GoInt num);
 
 #ifdef __cplusplus
 }

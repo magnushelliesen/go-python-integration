@@ -24,6 +24,15 @@ func fibonacci_iterative(num int) *C.char {
 	return C.CString(n0.String())
 }
 
+//export fibonacci_recursive
+func fibonacci_recursive(num int) int {
+	if num < 2 {
+		return num
+	} else {
+		return fibonacci_recursive(num-1) + fibonacci_recursive(num-2)
+	}
+}
+
 func main() {
 
 }
