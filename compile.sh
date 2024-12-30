@@ -1,1 +1,1 @@
-go build -buildmode=c-shared -o fibonacci/go/library.so fibonacci/go/library.go
+go build -buildmode=c-shared -o modules/go/library.so modules/go/library.go

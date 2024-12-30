@@ -10,4 +10,3 @@ fibonacci.egg-info/dependency_links.txt
 fibonacci.egg-info/not-zip-safe
 fibonacci.egg-info/top_level.txt
 fibonacci/go/library.go
-fibonacci/go/library.so

@@ -74,8 +74,9 @@ typedef struct { void *data; GoInt len; GoInt cap; } GoSlice;
 extern "C" {
 #endif
 
-extern char* fibonacci_iterative(GoInt num);
-extern GoInt fibonacci_recursive(GoInt num);
+extern char* fibonacci_iterative_go(GoInt num);
+extern GoInt fibonacci_recursive_go(GoInt num);
+extern GoFloat64 de_mean_go(double* array, int length);
 
 #ifdef __cplusplus
 }
