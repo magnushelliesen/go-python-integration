@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+fibonacci/__init__.py
+fibonacci/fibonacci.py
+fibonacci.egg-info/PKG-INFO
+fibonacci.egg-info/SOURCES.txt
+fibonacci.egg-info/dependency_links.txt
+fibonacci.egg-info/not-zip-safe
+fibonacci.egg-info/top_level.txt
+fibonacci/go/library.go
