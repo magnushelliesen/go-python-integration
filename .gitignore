@@ -28,4 +28,5 @@ __pycache__/
 /build/
 /dist/
 *.egg-info/
+fibonacci.egg-info/
 fibonacci.egg-info/SOURCES.txt
