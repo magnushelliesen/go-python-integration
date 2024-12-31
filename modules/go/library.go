@@ -38,25 +38,18 @@ func fibonacci_recursive(num int) int {
 
 //export de_mean
 func de_mean(array *C.double, length C.int) *C.double {
-	// Convert input array to Go slice
 	goSlice := (*[1 << 30]float64)(unsafe.Pointer(array))[:length:length]
 
-	// Compute mean
-	var sum float64
+	var sum float64 = 0
 	for _, value := range goSlice {
 		sum += value
 	}
+
 	mean := sum / float64(length)
 
-	// Allocate memory for the output array
 	outArray := C.malloc(C.size_t(length) * C.size_t(unsafe.Sizeof(C.double(0))))
-	if outArray == nil {
-		return nil // Return nil if allocation fails
-	}
-
 	resultArray := (*[1 << 30]C.double)(outArray)[:length:length]
 
-	// Subtract mean and store results
 	for i, value := range goSlice {
 		resultArray[i] = C.double(value - mean)
 	}
@@ -70,5 +63,5 @@ func free_array(arr *C.double) {
 }
 
 func main() {
-	// This main function is required for the Go program, but it can remain empty
+
 }
