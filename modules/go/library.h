@@ -19,6 +19,11 @@ typedef struct { const char *p; ptrdiff_t n; } _GoString_;
 /* Start of preamble from import "C" comments.  */
 
 
+#line 3 "library.go"
+
+#include <stdlib.h>
+
+#line 1 "cgo-generated-wrapper"
 
 
 /* End of preamble from import "C" comments.  */
@@ -74,9 +79,10 @@ typedef struct { void *data; GoInt len; GoInt cap; } GoSlice;
 extern "C" {
 #endif
 
-extern char* fibonacci_iterative_go(GoInt num);
-extern GoInt fibonacci_recursive_go(GoInt num);
-extern GoFloat64 de_mean_go(double* array, int length);
+extern char* fibonacci_iterative(GoInt num);
+extern GoInt fibonacci_recursive(GoInt num);
+extern double* de_mean(double* array, int length);
+extern void free_array(double* arr);
 
 #ifdef __cplusplus
 }

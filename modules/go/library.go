@@ -1,13 +1,16 @@
 package main
 
+/*
+#include <stdlib.h>
+*/
+import "C"
 import (
-	"C"
 	"math/big"
 	"unsafe"
 )
 
-//export fibonacci_iterative_go
-func fibonacci_iterative_go(num int) *C.char {
+//export fibonacci_iterative
+func fibonacci_iterative(num int) *C.char {
 	var n0 = big.NewInt(0)
 	var n1 = big.NewInt(1)
 	var n2 = big.NewInt(0)
@@ -25,25 +28,47 @@ func fibonacci_iterative_go(num int) *C.char {
 	return C.CString(n0.String())
 }
 
-//export fibonacci_recursive_go
-func fibonacci_recursive_go(num int) int {
+//export fibonacci_recursive
+func fibonacci_recursive(num int) int {
 	if num < 2 {
 		return num
-	} else {
-		return fibonacci_recursive_go(num-1) + fibonacci_recursive_go(num-2)
 	}
+	return fibonacci_recursive(num-1) + fibonacci_recursive(num-2)
 }
 
-//export de_mean_go
-func de_mean_go(array *C.double, length C.int) float64 {
-	slice := (*[1 << 30]float64)(unsafe.Pointer(array))[:length:length]
-	var mean float64 = 0
-	for _, value := range slice {
-		mean += value
+//export de_mean
+func de_mean(array *C.double, length C.int) *C.double {
+	// Convert input array to Go slice
+	goSlice := (*[1 << 30]float64)(unsafe.Pointer(array))[:length:length]
+
+	// Compute mean
+	var sum float64
+	for _, value := range goSlice {
+		sum += value
 	}
-	return mean / float64(len(slice))
+	mean := sum / float64(length)
+
+	// Allocate memory for the output array
+	outArray := C.malloc(C.size_t(length) * C.size_t(unsafe.Sizeof(C.double(0))))
+	if outArray == nil {
+		return nil // Return nil if allocation fails
+	}
+
+	resultArray := (*[1 << 30]C.double)(outArray)[:length:length]
+
+	// Subtract mean and store results
+	for i, value := range goSlice {
+		resultArray[i] = C.double(value - mean)
+	}
+
+	return (*C.double)(outArray)
+}
+
+//export free_array
+func free_array(arr *C.double) {
+	C.free(unsafe.Pointer(arr))
 }
 
 func main() {
-
+	// This main function is required for the Go program, but it can remain empty
 }
